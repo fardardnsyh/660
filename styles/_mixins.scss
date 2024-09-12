@@ -1,0 +1,57 @@
+/* For Mobile Devices */
+@mixin mobile {
+    @media (max-width: 480px) {
+        @content;
+    }
+}
+
+/* For Excluding Mobile Devices */
+@mixin ex-mobile {
+    @media (min-width: 480px) {
+        @content;
+    }
+}
+
+/* For low resolution  Tablets, Ipads */
+
+@mixin tablet-sm {
+    @media (min-width: 481px) and (max-width: 767px) {
+        @content;
+    }
+}
+
+/* For Tablets Ipads portrait mode */
+
+@mixin tablet-portrait {
+    @media (min-width: 768px) and (max-width: 1024px){
+        @content;
+    }
+}
+
+@mixin tablet-le {
+    @media (max-width: 768px){
+        @content;
+    }
+}
+
+/* For Excluding  Tablets Ipads */
+@mixin ex-tablet {
+    @media (min-width: 1024px) {
+        @content;
+    }
+}
+
+/* For Laptops and Desktops */
+
+@mixin desktop-sm {
+    @media (min-width: 1025px) and (max-width: 1280px){
+        @content;
+    }
+}
+
+/* For Large screens */
+@mixin desktop-lg {
+    @media (min-width: 1281px) {
+        @content;
+    }
+}

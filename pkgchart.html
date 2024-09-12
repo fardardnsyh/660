@@ -1,0 +1,54 @@
+<html>
+
+    <head>
+        <title>My Pkg Growth</title>
+        <script src="https://cdn.anychart.com/releases/8.10.0/js/anychart-base.min.js"></script>
+        <style type="text/css">
+            html,
+            body,
+            #container {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+        </style>
+    </head>
+
+    <body>
+        <div id="container"></div>
+        <script>
+            var data = [
+                {x: "2019", value: 1, token: "My initial package"},
+                {x: "2020", value: 1.08, token: "1.08 times my initial pkg"},              
+                //{x: "2021", value: 1.14, token: "1.14 times my initial pkg"},
+                {x: "2021", value: 2.23, token: "2.23 times my initial pkg"},
+                {x: "2022", value: 2.42, token: "2.42 times my initial pkg"},
+                //{x: "2023", value: 2.56, token: "2.56 times my initial pkg"},
+                {x: "2023", value: 4.2, token: "4.2 times my initial pkg"}
+            ];
+            var chart = anychart.stepLine();
+            chart.title('Package Growth');
+            chart.title().fontColor("white")
+            // chart.xScale().mode('continuous');
+            chart.yAxis().title('Package (in X times of my initial package)');
+            chart.yAxis().title().fontColor("white");
+            chart.yAxis().labels().format("{%value}");
+            chart.yAxis().labels().fontColor("white");
+            chart.xAxis().labels().fontColor("white");
+            var stepChart = chart.stepLine(data);
+            stepChart.stepDirection("forward");
+            stepChart.normal().stroke("dodgerblue");
+            stepChart.tooltip().title().text("Increament");
+            stepChart.tooltip().format("{%token}");
+            chart.container('container');
+            chart.background().fill({
+                keys: ["#333333", "#202020", "#0e0e0e"],
+                angle: 130,
+              });
+            chart.animation(true);
+            chart.draw();
+        </script>
+    </body>
+
+</html>
